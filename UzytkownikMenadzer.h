@@ -28,6 +28,8 @@ public:
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    int wyloguj();
 };
 
 #endif // UZYTKOWNIKMENADZER_H
