@@ -56,6 +56,7 @@ void UzytkownikMenadzer::wypiszWszystkichUzytkownikow() {
 }
 
 void UzytkownikMenadzer::wczytajUzytkownikowZPliku(){
+    this->idZalogowanegoUzytkownika = 0;
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
@@ -100,5 +101,13 @@ void UzytkownikMenadzer::zmianaHaslaZalogowanegoUzytkownika(){
         }
     }
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+
+int UzytkownikMenadzer::pobierzIdZalogowanegoUzytkownika(){
+    return idZalogowanegoUzytkownika;
+}
+
+int UzytkownikMenadzer::wyloguj(){
+    this->idZalogowanegoUzytkownika = 0;
 }
 
