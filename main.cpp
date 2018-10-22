@@ -7,7 +7,7 @@ char wybierzOpcjeZMenuGlownego();
 char wybierzOpcjeZMenuZalogowanegoUzytkownika();
 
 int main() {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
     char wybor;
 
     while (true)
@@ -42,7 +42,7 @@ int main() {
                 switch (wybor)
                 {
                 case '1':
-                    // ksiazkaAdresowa.dodajAdresata();
+                     ksiazkaAdresowa.dodajAdresata(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
                     break;
                 case '2':
                     // ksiazkaAdresowa.wyszukajAdresatowPoImieniu();

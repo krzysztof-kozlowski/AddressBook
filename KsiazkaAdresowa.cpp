@@ -23,3 +23,7 @@ int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika(){
 int KsiazkaAdresowa::wyloguj(){
     uzytkownikMenadzer.wyloguj();
 }
+
+int KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika){
+    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+}
