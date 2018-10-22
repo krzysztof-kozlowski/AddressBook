@@ -12,8 +12,6 @@
 class PlikZAdresatami {
     const string nazwaPlikuZAdresatami;
 
-    string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami();
-
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
