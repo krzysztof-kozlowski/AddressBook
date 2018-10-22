@@ -27,3 +27,7 @@ int KsiazkaAdresowa::wyloguj(){
 int KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika){
     adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 }
+
+void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika){
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+}

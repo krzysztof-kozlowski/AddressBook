@@ -1,5 +1,6 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
+#include "PlikZAdresatami.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ int main() {
         {
             do
             {
+                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
                 wybor = wybierzOpcjeZMenuZalogowanegoUzytkownika();
 
                 switch (wybor)

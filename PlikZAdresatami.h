@@ -13,17 +13,17 @@ class PlikZAdresatami {
     const string nazwaPlikuZAdresatami;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami();
-    bool czyPlikJestPusty();
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
+    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
 public:
     PlikZAdresatami(string NAZWAPLIKUZADRESATAMI): nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
     void dopiszAdresataDoPliku(Adresat &adresat);
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     int sprawdzIdOstatniegoAdresata();
-
-
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika, vector <Adresat> &adresaci);
 };
 
 
