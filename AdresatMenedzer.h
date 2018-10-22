@@ -13,7 +13,6 @@
 
 class AdresatMenedzer {
     PlikZAdresatami plikZAdresatami;
-
     vector <Adresat> adresaci;
 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
