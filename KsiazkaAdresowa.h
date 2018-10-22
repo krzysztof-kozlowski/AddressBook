@@ -24,6 +24,7 @@ public:
     int wyloguj();
 
     int dodajAdresata(int idZalogowanegoUzytkownika);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 };
 
 #endif // KSIAZKAADRESOWA_H

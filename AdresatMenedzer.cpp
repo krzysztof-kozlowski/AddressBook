@@ -46,3 +46,7 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika){
 int AdresatMenedzer::sprawdzIdOstatniegoAdresata() {
     return plikZAdresatami.sprawdzIdOstatniegoAdresata();
 }
+
+void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika){
+    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika, adresaci);
+}

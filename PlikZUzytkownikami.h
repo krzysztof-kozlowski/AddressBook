@@ -15,7 +15,6 @@ class PlikZUzytkownikami {
     const string nazwaPlikuZUzytkownikami;
     Uzytkownik uzytkownik;
 
-    bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
