@@ -175,6 +175,7 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii) {
                 tymczasowyPlikTekstowy << endl << wczytanaLinia;
             numerWczytanejLinii++;
         }
+        tymczasowyPlikTekstowy << endl;
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
