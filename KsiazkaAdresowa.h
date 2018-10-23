@@ -17,17 +17,17 @@ public:
         uzytkownikMenadzer.wczytajUzytkownikowZPliku();
     };
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow();
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     int wyloguj();
 
-    int dodajAdresata(int idZalogowanegoUzytkownika);
+    int dodajAdresata();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
     void wyswietlWszystkichAdresatow();
+    void usunAdresata();
 };
 
 #endif // KSIAZKAADRESOWA_H

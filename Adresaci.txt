@@ -2,9 +2,7 @@
 2|1|W|W|w|w|w|
 3|2|A|A|a|a|a|
 4|2|S|S|s|s|s|
-5|3|Z|Z|z|z|z|
 6|1|E|E|e|e|e|
 7|2|D|D|d|d|d|
 8|3|B|B|b|b|b|
-9|3|Nnnn|N|n|n|n|
-10|3|A|Z|z|z|z|
+9|3|Jkl|J|j|j|j|
