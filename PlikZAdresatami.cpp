@@ -201,3 +201,36 @@ int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(strin
     int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
     return idAdresata;
 }
+
+void PlikZAdresatami::edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami) {
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string nazwaTymczasowegoPlikuZAdresatami = "tymczas.txt";
+    string wczytanaLinia = "";
+    int numerWczytanejLinii = 1;
+
+    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good() == true) {
+        while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
+            if (numerWczytanejLinii == numerEdytowanejLinii) {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << liniaZDanymiAdresataOddzielonePionowymiKreskami;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << liniaZDanymiAdresataOddzielonePionowymiKreskami;
+            } else {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << wczytanaLinia;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << wczytanaLinia;
+            }
+            numerWczytanejLinii++;
+        }
+        tymczasowyPlikTekstowy << endl;
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        usunOdczytywanyPlik(nazwaPlikuZAdresatami);
+        zmienNazweTymczasowegoPlikuNaNazweOdczytywanegoPliku(nazwaTymczasowegoPlikuZAdresatami, nazwaPlikuZAdresatami);
+    }
+}
