@@ -35,3 +35,7 @@ void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogo
 void KsiazkaAdresowa::wyszukajAdresatowPoImieniu(){
     adresatMenedzer.wyszukajAdresatowPoImieniu();
 }
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku(){
+    adresatMenedzer.wyszukajAdresatowPoNazwisku();
+}

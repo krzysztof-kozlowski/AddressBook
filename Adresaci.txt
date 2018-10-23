@@ -7,3 +7,4 @@
 7|2|D|D|d|d|d|
 8|3|B|B|b|b|b|
 9|3|Nnnn|N|n|n|n|
+10|3|A|Z|z|z|z|

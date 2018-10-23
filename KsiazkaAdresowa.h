@@ -26,6 +26,7 @@ public:
     int dodajAdresata(int idZalogowanegoUzytkownika);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 
 #endif // KSIAZKAADRESOWA_H
