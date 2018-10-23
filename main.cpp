@@ -11,14 +11,11 @@ int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
     char wybor;
 
-    while (true)
-    {
-        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
-        {
+    while (true) {
+        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0) {
             wybor = wybierzOpcjeZMenuGlownego();
 
-            switch (wybor)
-            {
+            switch (wybor) {
             case '1':
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
@@ -33,30 +30,25 @@ int main() {
                 system("pause");
                 break;
             }
-        }
-        else if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() > 0)
-        {
-            do
-            {
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
+        } else {
+            do {
                 wybor = wybierzOpcjeZMenuZalogowanegoUzytkownika();
 
-                switch (wybor)
-                {
+                switch (wybor) {
                 case '1':
-                     ksiazkaAdresowa.dodajAdresata(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
+                    ksiazkaAdresowa.dodajAdresata();
                     break;
                 case '2':
-                     ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+                    ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                     break;
                 case '3':
-                     ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                    ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                     break;
                 case '4':
-                     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                     break;
                 case '5':
-                    // ksiazkaAdresowa.usunAdresata();
+                    ksiazkaAdresowa.usunAdresata();
                     break;
                 case '6':
                     // ksiazkaAdresowa.edytujAdresata();
@@ -74,8 +66,7 @@ int main() {
     return 0;
 }
 
-char wybierzOpcjeZMenuGlownego()
-{
+char wybierzOpcjeZMenuGlownego() {
     char wybor;
 
     system("cls");
@@ -92,8 +83,7 @@ char wybierzOpcjeZMenuGlownego()
     return wybor;
 }
 
-char wybierzOpcjeZMenuZalogowanegoUzytkownika()
-{
+char wybierzOpcjeZMenuZalogowanegoUzytkownika() {
     char wybor;
 
     system("cls");

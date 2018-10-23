@@ -133,3 +133,51 @@ void AdresatMenedzer::wyswietlWszystkichAdresatow() {
     }
     system("pause");
 }
+
+void AdresatMenedzer::usunAdresata() {
+    int idUsuwanegoAdresata = 0;
+    int numerLiniiUsuwanegoAdresata = 0;
+
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+    idUsuwanegoAdresata = podajIdWybranegoAdresata();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+
+    for (int i = 0; i < adresaci.size(); i++) {
+        if (adresaci[i].pobierzId() == idUsuwanegoAdresata) {
+            czyIstniejeAdresat = true;
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            cin >> znak;
+            if (znak == 't') {
+                numerLiniiUsuwanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
+                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                adresaci.erase(adresaci.begin() + i);
+                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                system("pause");
+            } else {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false) {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+}
+
+int AdresatMenedzer::podajIdWybranegoAdresata() {
+    int idWybranegoAdresata = 0;
+
+    do {
+        cin.clear();
+        cin.sync();
+
+        cout << "Podaj numer ID Adresata: ";
+        cin >> idWybranegoAdresata;
+    } while (cin.fail() == true);
+
+    return idWybranegoAdresata;
+}
