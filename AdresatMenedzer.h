@@ -16,11 +16,14 @@ class AdresatMenedzer {
     vector <Adresat> adresaci;
 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+    void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
 public:
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
     void dodajAdresata(int idZalogowanegoUzytkownika);
     int sprawdzIdOstatniegoAdresata();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wyszukajAdresatowPoImieniu();
 };
 #endif // ADRESATMENADZER_H
