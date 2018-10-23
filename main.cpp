@@ -53,7 +53,7 @@ int main() {
                      ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                     break;
                 case '4':
-                    // ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                     break;
                 case '5':
                     // ksiazkaAdresowa.usunAdresata();
