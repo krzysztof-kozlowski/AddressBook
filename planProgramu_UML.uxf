@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>10</y>
-      <w>330</w>
-      <h>280</h>
+      <x>10</x>
+      <y>0</y>
+      <w>400</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 -
@@ -28,6 +28,7 @@
 + wyszukajAdresatowPoNazwisku(): void
 + wyswietlWszystkichAdresatow(): void
 + usunAdresata(): void
++ edytujAdresata(): void
 
 
 </panel_attributes>
@@ -36,8 +37,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>490</y>
+      <x>10</x>
+      <y>540</y>
       <w>180</w>
       <h>120</h>
     </coordinates>
@@ -53,8 +54,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>340</x>
-      <y>10</y>
+      <x>420</x>
+      <y>0</y>
       <w>340</w>
       <h>290</h>
     </coordinates>
@@ -82,10 +83,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
-      <y>320</y>
-      <w>410</w>
-      <h>210</h>
+      <x>530</x>
+      <y>670</y>
+      <w>540</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 -
@@ -104,10 +105,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>10</y>
-      <w>320</w>
-      <h>170</h>
+      <x>220</x>
+      <y>330</y>
+      <w>380</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 -
@@ -123,8 +124,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>300</y>
+      <x>10</x>
+      <y>340</y>
       <w>200</w>
       <h>180</h>
     </coordinates>
@@ -143,10 +144,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>190</y>
-      <w>330</w>
-      <h>230</h>
+      <x>610</x>
+      <y>310</y>
+      <w>400</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>AdresatMenedzer
 -
@@ -161,19 +162,22 @@
 + wyszukajAdresatowPoNazwisku(): void
 + wyswietlWszystkichAdresatow(): void
 + usunAdresata(): void
++ edytujAdresata(): void
 - podajDaneNowegoAdresata(): Adresat
 - wyswietlDaneAdresata(): void
 - wyswietlIloscWyszukanychAdresatow(): void
-- podajIdWybranegoAdresata(): integer</panel_attributes>
+- podajIdWybranegoAdresata(): integer
+- wybierzOpcjeZMenuEdycja(): char
+- zaktualizujDaneEdytowanegoAdresata(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>430</y>
-      <w>370</w>
-      <h>210</h>
+      <x>10</x>
+      <y>680</y>
+      <w>510</w>
+      <h>330</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 -
@@ -186,7 +190,8 @@
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
 + zwrocNumerLiniiSzukanegoAdresata(): integer
 + usunWybranaLinieWPliku(): void
-- zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(): string
++ edytujWybranaLinieWPliku(): void
++ zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(): string
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(): integer
 - pobierzDaneAdresata(): Adresat
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(): integer
