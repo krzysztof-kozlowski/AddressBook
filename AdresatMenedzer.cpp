@@ -118,3 +118,18 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
     cout << endl;
     system("pause");
 }
+
+void AdresatMenedzer::wyswietlWszystkichAdresatow() {
+    system("cls");
+    if (!adresaci.empty()) {
+        cout << "             >>> ADRESACI <<<" << endl;
+        cout << "-----------------------------------------------" << endl;
+        for (int i = 0; i < adresaci.size(); i++) {
+            wyswietlDaneAdresata(adresaci[i]);
+        }
+        cout << endl;
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+    }
+    system("pause");
+}

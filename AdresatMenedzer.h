@@ -26,5 +26,6 @@ public:
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
+    void wyswietlWszystkichAdresatow();
 };
 #endif // ADRESATMENADZER_H

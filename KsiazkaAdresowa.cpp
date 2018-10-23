@@ -39,3 +39,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu(){
 void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku(){
     adresatMenedzer.wyszukajAdresatowPoNazwisku();
 }
+
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow(){
+    adresatMenedzer.wyswietlWszystkichAdresatow();
+}
