@@ -25,6 +25,7 @@
 + dodajAdresata(): integer
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
 + wyszukajAdresatowPoImieniu(): void
++ wyszukajAdresatowPoNazwisku(): void
 
 
 </panel_attributes>
@@ -155,6 +156,7 @@
 + sprawdzIdOstatniegoAdresata(): integer
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
 + wyszukajAdresatowPoImieniu(): void
++ wyszukajAdresatowPoNazwisku(): void
 - podajDaneNowegoAdresata(): Adresat
 - wyswietlDaneAdresata(): void
 - wyswietlIloscWyszukanychAdresatow(): void</panel_attributes>

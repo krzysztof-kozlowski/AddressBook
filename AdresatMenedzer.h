@@ -25,5 +25,6 @@ public:
     int sprawdzIdOstatniegoAdresata();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 #endif // ADRESATMENADZER_H

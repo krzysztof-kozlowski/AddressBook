@@ -50,7 +50,7 @@ int main() {
                      ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                     break;
                 case '3':
-                    // ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                     ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                     break;
                 case '4':
                     // ksiazkaAdresowa.wyswietlWszystkichAdresatow();

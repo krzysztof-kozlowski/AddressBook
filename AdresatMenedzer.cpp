@@ -92,3 +92,29 @@ void AdresatMenedzer::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow) {
     else
         cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
 }
+
+void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
+    string nazwiskoPoszukiwanegoAdresata;
+    int iloscAdresatow = 0;
+
+    system("cls");
+    if (!adresaci.empty()) {
+        cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU <<<" << endl << endl;
+
+        cout << "Wyszukaj adresatow o nazwisku: ";
+        cin >> nazwiskoPoszukiwanegoAdresata;
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
+
+        for (int i = 0; i < adresaci.size(); i++) {
+            if (adresaci[i].pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata) {
+                wyswietlDaneAdresata(adresaci[i]);
+                iloscAdresatow++;
+            }
+        }
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+}
