@@ -1,44 +1,40 @@
 #include "AdresatMenedzer.h"
 
 void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika) {
-    Adresat adresat;
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
+    Adresat adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
 }
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
-    Adresat adresat;
-    string imie, nazwisko, numerTelefonu, email, adres;
+    int id = sprawdzIdOstatniegoAdresata() + 1;
+    int idUzytkownika = idZalogowanegoUzytkownika;
 
-    adresat.ustawId(sprawdzIdOstatniegoAdresata() + 1);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    string imie, nazwisko, numerTelefonu, email, adres;
 
     cout << "Podaj imie: ";
     cin >> imie;
-    adresat.ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie));
+    imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
 
     cout << "Podaj nazwisko: ";
     cin >> nazwisko;
-    adresat.ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko));
+    nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
 
     cout << "Podaj numer telefonu: ";
     cin.sync();
     getline(cin, numerTelefonu);
-    adresat.ustawNumerTelefonu(numerTelefonu);
 
     cout << "Podaj email: ";
     cin >> email;
-    adresat.ustawEmail(email);
 
     cout << "Podaj adres: ";
     cin.sync();
     getline(cin, adres);
-    adresat.ustawAdres(adres);
+
+    Adresat adresat(id, idUzytkownika, imie, nazwisko, numerTelefonu, email, adres);
 
     return adresat;
 }
@@ -184,7 +180,6 @@ int AdresatMenedzer::podajIdWybranegoAdresata() {
 
 void AdresatMenedzer::edytujAdresata() {
     system("cls");
-    Adresat adresat;
     int idEdytowanegoAdresata = 0;
     int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
