@@ -62,7 +62,6 @@ int PlikZAdresatami::sprawdzIdOstatniegoAdresata() {
 }
 
 void PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika, vector <Adresat> &adresaci) {
-    Adresat adresat;
     adresaci.clear();
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
@@ -72,7 +71,7 @@ void PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogo
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)) {
-                adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
+                Adresat adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
             }
         }
@@ -89,7 +88,8 @@ int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(st
 }
 
 Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami) {
-    Adresat adresat;
+    int id, idUzytkownika;
+    string imie, nazwisko, numerTelefonu, email, adres;
     string pojedynczaDanaAdresata = "";
     int numerPojedynczejDanejAdresata = 1;
 
@@ -99,31 +99,33 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
         } else {
             switch(numerPojedynczejDanejAdresata) {
             case 1:
-                adresat.ustawId(atoi(pojedynczaDanaAdresata.c_str()));
+                id = (atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 2:
-                adresat.ustawIdUzytkownika(atoi(pojedynczaDanaAdresata.c_str()));
+                idUzytkownika = (atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 3:
-                adresat.ustawImie(pojedynczaDanaAdresata);
+                imie = pojedynczaDanaAdresata;
                 break;
             case 4:
-                adresat.ustawNazwisko(pojedynczaDanaAdresata);
+                nazwisko = pojedynczaDanaAdresata;
                 break;
             case 5:
-                adresat.ustawNumerTelefonu(pojedynczaDanaAdresata);
+                numerTelefonu = pojedynczaDanaAdresata;
                 break;
             case 6:
-                adresat.ustawEmail(pojedynczaDanaAdresata);
+                email = pojedynczaDanaAdresata;
                 break;
             case 7:
-                adresat.ustawAdres(pojedynczaDanaAdresata);
+                adres = pojedynczaDanaAdresata;
                 break;
             }
             pojedynczaDanaAdresata = "";
             numerPojedynczejDanejAdresata++;
         }
     }
+    Adresat adresat(id, idUzytkownika, imie, nazwisko, numerTelefonu, email, adres);
+
     return adresat;
 }
 

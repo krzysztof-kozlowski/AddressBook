@@ -11,22 +11,19 @@ void UzytkownikMenadzer::rejestracjaUzytkownika() {
 }
 
 Uzytkownik UzytkownikMenadzer::podajDaneNowegoUzytkownika() {
-    Uzytkownik uzytkownik;
-
-    uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
+    int id = pobierzIdNowegoUzytkownika();
 
     string login;
     do {
         cout << "Podaj login: ";
         cin >> login;
-        uzytkownik.ustawLogin(login);
-    } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
+    } while (czyIstniejeLogin(login) == true);
 
     string haslo;
     cout << "Podaj haslo: ";
     cin >> haslo;
-    uzytkownik.ustawHaslo(haslo);
 
+    Uzytkownik uzytkownik(id, login, haslo);
     return uzytkownik;
 }
 

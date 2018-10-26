@@ -13,7 +13,6 @@ using namespace std;
 
 class PlikZUzytkownikami {
     const string nazwaPlikuZUzytkownikami;
-    Uzytkownik uzytkownik;
 
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
