@@ -6,29 +6,29 @@
     <coordinates>
       <x>10</x>
       <y>0</y>
-      <w>400</w>
-      <h>320</h>
+      <w>310</w>
+      <h>310</h>
     </coordinates>
-    <panel_attributes>KsiazkaAdresowa
+    <panel_attributes>AddressBook
 -
-- uzytkownikMenedzer: UzytkownikMenedzer
-- adresatMenedzer: AdresatMenedzer
+- userManager: UserManager
+- contactManager *: ContactManager
+- fileNameWithContacts: const string
 -
-+ KsiazkaAdresowa()
-+ rejestracjaUzytkownika(): void
-+ wypiszWszystkichUzytkownikow(): void
-+ logowanieUzytkownika(): integer
-+ zmianaHaslaZalogowanegoUzytkownika(): void
-+ pobierzIdZalogowanegoUzytkownika(): integer
-+ wyloguj(): integer
++ AddressBook()
++ userRegistration(): void
++ userLogin(): integer
++ passwordChangeLoggedUser(): void
++ getIdLoggedUser(): integer
++ userLogout(): integer
 
-+ dodajAdresata(): integer
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
-+ wyszukajAdresatowPoImieniu(): void
-+ wyszukajAdresatowPoNazwisku(): void
-+ wyswietlWszystkichAdresatow(): void
-+ usunAdresata(): void
-+ edytujAdresata(): void
++ addContact(): integer
++ loadContactsLoggedUserFromFile(): void
++ searchContactsByForename(): void
++ searchContactsBySurname(): void
++ searchAllContacts(): void
++ deleteContact(): void
++ editContact(): void
 
 
 </panel_attributes>
@@ -37,45 +37,44 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
+      <x>20</x>
       <y>540</y>
       <w>180</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Uzytkownik
+    <panel_attributes>User
 -
 - id: integer
 - login: string
-- haslo: string
+- password: string
 -
++ User()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
+      <x>330</x>
       <y>0</y>
-      <w>340</w>
+      <w>270</w>
       <h>290</h>
     </coordinates>
-    <panel_attributes>UzytkownikMenadzer
+    <panel_attributes>UserManager
 -
-- idZalogowanegoUzytkownika: integer
-- uzytkownicy: vector &lt;Uzytkownik&gt;
-- plikZUzytkownikami: PlikZUzytkownikami
+- idLoggedUser: integer
+- users: vector &lt;User&gt;
+- fileWithUsers: FileWithUsers
 -
-+ UzytkownikMenedzer()
-+ rejestracjaUzytkownika(): void
-+ wypiszWszystkichUzytkowikow(): void
-+ wczytajUzytkownikowZPliku(): void
-+ logowanieUzytkownika(): integer
-+ zmianaHaslaZalogowanegoUzytkownika(): void
-+ pobierzIdZalogowanegoUzytkownika(): integer
-+ wyloguj(): integer
-- podajDaneNowegoUzytkownika(): Uzytkownik
-- pobierzIdNowegoUzytkownika(): integer
-- czyIstniejeLogin(): bool
++ UserManager()
++ userRegistration(): void
++ loadUsersFromFile(): void
++ userLogin(): integer
++ passwordChangeLoggedUser(): void
++ getIdLoggedUser(): integer
++ userLogout(): integer
+- enterDataOfNewUser(): Uzytkownik
+- isExistLogin(): bool
 
 </panel_attributes>
     <additional_attributes/>
@@ -83,22 +82,21 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
-      <y>670</y>
+      <x>520</x>
+      <y>690</y>
       <w>540</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>PlikZUzytkownikami
+    <panel_attributes>FileWithUsers
 -
-- nazwaPlikuZUzytkownikami: const string
-- uzytkownik: Uzytkownik
+- fileNameOWithUsers: const string
 -
-+ PlikZUzytkownikami()
-+ dopiszUzytkownikaDoPliku(): void
-+ wczytajUzytkownikowZPliku: vector &lt;Uzytkownik&gt;
-+ zapiszWszystkichUzytkownikowDoPliku(): void
-- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): string
-- pobierzDaneUzytkownika(): Uzytkownik
++ FileWithUsers()
++ addUserToFile(): void
++ loadUsersFromFile: vector &lt;User&gt;
++ saveAllUsersToFile(): void
+- changeUserDataOnTheLineWithVerticalSeparator(): string
+- getUserData(): Uzytkownik
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -110,93 +108,108 @@
       <w>380</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>MetodyPomocnicze
+    <panel_attributes>Auxiliary methods
 -
 
 -
-+ czyPlikJestPusty(): static bool
-+ konwerjsaIntNaString(): static string
-+ konwersjaStringNaInt(): static integer
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
-+ pobierzLiczbe(): static string</panel_attributes>
++ conversionIntForString(): static string
++ conversionStringForInt(): static integer
++ changeFirstLetterForUpperTheRestForLower(): string
++ getNumber(): static string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>10</x>
-      <y>340</y>
+      <y>330</y>
       <w>200</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>Adresat
+    <panel_attributes>Contact
 -
 - id: integer
-- idUzytkownika: integer
-- imie: string
-- nazwisko: string
-- numerTelefonu: string
+- idUser: integer
+- forename: string
+- surname: string
+- phoneNumber: string
 - email: string
-- adres: string
--</panel_attributes>
+- address: string
+-
++ Contact()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>310</y>
+      <w>330</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>ContactManager
+-
+- idLoggedUser: const integer
+- fileWithContacts: FileWithContacts
+- contacts: vector &lt;Contact&gt;
+-
++ ContactManager()
++ addContact(): integer
++ checkIdOfLastContact(): integer
++ loadContactsLoggedUserFromFile(): void
++ searchContactsByForename(): void
++ searchContactsBySurname(): void
++ searchAllContacts(): void
++ deleteContact(): void
++ editContact(): void
+- enterDataOfNewContact(): Adresat
+- showContactData(): void
+- showNumberOfFoundContacts(): void
+- getIdOfChosenContact(): integer
+- selectOptionFromEditionMenu(): char
+- updateDataOfEditedContact(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>680</y>
+      <w>510</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>FileWithContacts
+-
+- fileNameWithContacts: const string
+-
++ FileWithContacts()
++ addContactToFile(): void
++ checkIdOfLastContact(): integer
++ loadContactsLoggedUserFromFile(): void
++ getLineNumberOfSearchingContact(): integer
++ deleteChosenLineInFile(): void
++ editChosenLineInFile(): void
++ changeContactDataForTheLineWithVerticalSeparator(): string
+- getUserIdFromTheUserDataWithVerticalSeparator(): integer
+- getContactData(): Adresat
+- getContactIdFromTheContactDataWithVerticalSeparator(): integer
+- deleteReadingFile(): void
+- changeNameOfTemporaryFileForNameOfReadingFile(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>610</x>
-      <y>310</y>
-      <w>400</w>
-      <h>340</h>
+      <y>0</y>
+      <w>230</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>AdresatMenedzer
+    <panel_attributes>File
 -
-- plikZAdresatami: PlikZAdresatami
-- adresaci: vector &lt;Adresat&gt;
+
 -
-+ AdresatMenedzer()
-+ dodajAdresata(): integer
-+ sprawdzIdOstatniegoAdresata(): integer
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
-+ wyszukajAdresatowPoImieniu(): void
-+ wyszukajAdresatowPoNazwisku(): void
-+ wyswietlWszystkichAdresatow(): void
-+ usunAdresata(): void
-+ edytujAdresata(): void
-- podajDaneNowegoAdresata(): Adresat
-- wyswietlDaneAdresata(): void
-- wyswietlIloscWyszukanychAdresatow(): void
-- podajIdWybranegoAdresata(): integer
-- wybierzOpcjeZMenuEdycja(): char
-- zaktualizujDaneEdytowanegoAdresata(): void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>10</x>
-      <y>680</y>
-      <w>510</w>
-      <h>330</h>
-    </coordinates>
-    <panel_attributes>PlikZAdresatami
--
-- nazwaPlikuZAdresatami: const string
--
-+ PlikZAdresatami()
-+ dopiszAdresataDoPliku(): void
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(): integer
-+ sprawdzIdOstatniegoAdresata(): integer
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(): void
-+ zwrocNumerLiniiSzukanegoAdresata(): integer
-+ usunWybranaLinieWPliku(): void
-+ edytujWybranaLinieWPliku(): void
-+ zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(): string
-- pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(): integer
-- pobierzDaneAdresata(): Adresat
-- pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(): integer
-- usunOdczytywanyPlik(): void
-- zmienNazweTymczasowegoPlikuNaNazweOdczytywanegoPliku(): void</panel_attributes>
+- isFileEmpty(): bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
