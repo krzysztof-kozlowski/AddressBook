@@ -30,7 +30,6 @@ string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
 }
 
 vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku(){
-    Uzytkownik uzytkownik;
     fstream plikTekstowy;
     vector <Uzytkownik> uzytkownicy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
@@ -41,7 +40,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku(){
     {
         while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami))
         {
-            uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+            Uzytkownik uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
             uzytkownicy.push_back(uzytkownik);
         }
         plikTekstowy.close();
@@ -51,6 +50,8 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku(){
 
 Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
 {
+    int id;
+    string login, haslo;
     string pojedynczaDanaUzytkownika = "";
     int numerPojedynczejDanejUzytkownika = 1;
 
@@ -65,19 +66,20 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
             switch(numerPojedynczejDanejUzytkownika)
             {
             case 1:
-                uzytkownik.ustawId(atoi(pojedynczaDanaUzytkownika.c_str()));
+                id = atoi(pojedynczaDanaUzytkownika.c_str());
                 break;
             case 2:
-                uzytkownik.ustawLogin(pojedynczaDanaUzytkownika);
+                login = pojedynczaDanaUzytkownika;
                 break;
             case 3:
-                uzytkownik.ustawHaslo(pojedynczaDanaUzytkownika);
+                haslo = pojedynczaDanaUzytkownika;
                 break;
             }
             pojedynczaDanaUzytkownika = "";
             numerPojedynczejDanejUzytkownika++;
         }
     }
+    Uzytkownik uzytkownik(id, login, haslo);
     return uzytkownik;
 }
 
