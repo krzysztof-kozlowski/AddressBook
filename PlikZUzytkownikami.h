@@ -7,11 +7,12 @@
 #include <cstdlib>
 
 #include "Uzytkownik.h"
+#include "Plik.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
 
-class PlikZUzytkownikami {
+class PlikZUzytkownikami : private Plik {
     const string nazwaPlikuZUzytkownikami;
 
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);

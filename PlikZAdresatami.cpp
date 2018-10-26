@@ -8,7 +8,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat &adresat) {
     if (plikTekstowy.good() == true) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(adresat);
 
-        if (MetodyPomocnicze::czyPlikJestPusty() == true) {
+        if (czyPlikJestPusty(plikTekstowy) == true) {
             plikTekstowy << liniaZDanymiAdresata;
         } else {
             plikTekstowy << liniaZDanymiAdresata ;

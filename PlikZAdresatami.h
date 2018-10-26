@@ -8,8 +8,9 @@
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "Plik.h"
 
-class PlikZAdresatami {
+class PlikZAdresatami : private Plik {
     const string nazwaPlikuZAdresatami;
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
