@@ -12,6 +12,7 @@
 #include "PlikZAdresatami.h"
 
 class AdresatMenedzer {
+    const int idZalogowanegoUzytkownika;
     PlikZAdresatami plikZAdresatami;
     vector <Adresat> adresaci;
 
@@ -23,7 +24,9 @@ class AdresatMenedzer {
     void zaktualizujDaneEdytowanegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int IDZALOGOWANEGOUZYTKOWNIKA) : plikZAdresatami(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(IDZALOGOWANEGOUZYTKOWNIKA) {
+        plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika, adresaci);
+    };
     void dodajAdresata(int idZalogowanegoUzytkownika);
     int sprawdzIdOstatniegoAdresata();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
