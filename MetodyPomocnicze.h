@@ -2,7 +2,6 @@
 #define METODYPOMOCNICZE_H
 
 #include <iostream>
-#include <fstream>
 #include <sstream>
 #include <algorithm>
 
@@ -10,7 +9,6 @@ using namespace std;
 
 class MetodyPomocnicze {
 public:
-    static bool czyPlikJestPusty();
     static string konwerjsaIntNaString(int liczba);
     static int konwersjaStringNaInt(string liczba);
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
